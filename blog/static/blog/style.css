@@ -1,0 +1,54 @@
+.nav_style{
+	background-color: #76923A;
+	
+
+
+}
+.nav-text{
+	color: white;
+    width: 30rem;
+    font-size: 50px;
+    margin-left: 450px;
+    font-family: "Arial", Helvetica, sans-serif;
+    font-style: italic;
+}
+
+.logout{
+	background: url("images/logout.png");
+}
+
+
+.img-icon{
+
+	width: 40px; height: 40px;
+}
+.img-del{
+	
+	width: 20px; height: 20px;
+}
+.img-edit{
+
+	width: 25px; height: 25px;
+	border-radius: 30px;
+}
+.title{
+	font-family: "Arial", Helvetica, sans-serif;
+
+    font-style: oblique;
+
+    font-weight: bold;
+
+    font-size: 30px;
+}
+.bttn{
+	background-color: #9BBC57;
+	color: white;
+}
+.link{
+	color: black;
+	font-size: 12px;
+
+}
+.margin{
+	margin-left: 100px;
+}

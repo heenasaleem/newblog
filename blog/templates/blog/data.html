@@ -1,0 +1,16 @@
+{% if latest_blog_list %}
+ 
+  <form  action="/blog/save_data/s" method="post">{% csrf_token %}
+    {% for item in latest_blog_list %}
+    <input id="title_id" type="text" name="title" value="{{ item.title }}"><br>
+    <textarea rows="30" cols="60" id="body_id" name="body">{{item.body}}</textarea><br>
+    <label>Published on</label><br>
+  <!--  <h3 id="">{{item.pub_date}}</h2></label><br>-->
+    <input type="submit" name = "save" value="Save">
+  
+  </form>
+  {% endfor %}
+  
+  {% else %}
+    <p>No blogs are available.</p>
+{% endif %}/save_data/

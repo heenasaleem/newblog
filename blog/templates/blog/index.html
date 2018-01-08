@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% if latest_blog_list %}
+  
+    {% for item in latest_blog_list %}
+         <div class="container card" style="margin-left: 150px;">
+         	
+         	<div class="row card-header" style="background-color: #A9C56D;">
+         		<div class="col">
+         			<p class="title">{{ item.title }}</p>
+         		</div>
+         		<div class="col-md-auto">
+         			<p>{{item.pub_date}}</p>
+         		</div>
+            	<div class="col col-lg-2">
+              		<a href="{% url 'blog:edit_blog' item.id %}"><img class="img-edit" src="{% static 'images/pen3.png' %}" alt="img" ></a>
+              		<a href="{% url 'blog:delete_blog' item.id %}"><img class="img-del" src="{% static 'images/delete.png' %}" alt="img" ></a>
+              		
+            	</div>
+            </div>
+            
+            <div class="row card-body">              
+              	<p class="card-text"> {{item.body}} </p> 
+            </div>
+          
+		 </div>
+		 <div style="height: 10px;"></div>
+        	
+        	
+    {% endfor %}   
+   
+   
+  {% else %}
+    <p>No blogs are available.</p>
+ {% endif %}
+ {% endblock %}
