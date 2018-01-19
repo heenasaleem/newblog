@@ -1,3 +1,31 @@
+a:hover {
+   color: yellow;
+}
+a:active {
+    color: orange;
+}
+a{
+    color:white;
+}
+
+#text {
+    
+    width: 5rem;
+    font-size: 30px;
+    margin-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: ;
+}
+
+
+#div2 {
+    white-space: nowrap; 
+    width: 150em; 
+    height:20em;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
+}
 .nav_style{
 	background-color: #76923A;
 	
@@ -52,3 +80,41 @@
 .margin{
 	margin-left: 100px;
 }
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown .dropbtn {
+    font-size: 16px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.navbarr {
+    overflow: hidden;
+    background-color: #f9f9f9;
+    font-family: Arial;
+}
+
+

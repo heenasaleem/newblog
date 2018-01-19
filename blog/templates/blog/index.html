@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
 {% if latest_blog_list %}
   
@@ -14,14 +14,16 @@
          			<p>{{item.pub_date}}</p>
          		</div>
             	<div class="col col-lg-2">
+                <a href="{% url 'blog:download_excel_data' %}">Download</a>
               		<a href="{% url 'blog:edit_blog' item.id %}"><img class="img-edit" src="{% static 'images/pen3.png' %}" alt="img" ></a>
               		<a href="{% url 'blog:delete_blog' item.id %}"><img class="img-del" src="{% static 'images/delete.png' %}" alt="img" ></a>
               		
             	</div>
             </div>
             
-            <div class="row card-body">              
-              	<p class="card-text"> {{item.body}} </p> 
+            <div class="row card-body" id="">              
+              	<p class="card-text" style="white-space: nowrap;width:43em; overflow: hidden;text-overflow: ellipsis;"> {{item.body}} </p>
+                <!--<p class="card-text" id="div2"> {{item.body}} </p>  -->
             </div>
           
 		 </div>

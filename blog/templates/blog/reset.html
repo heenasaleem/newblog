@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}          
+
+
+
+
+
+
+          <form method="post" action=".">
+            {% csrf_token %}
+            <div class="form-group{% if form.email.errors %} has-error{% endif %}">
+              <label class="control-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              <input type="email" class="form-control" value="{{ form.email.value|default_if_none:'' }}" id="{{ form.email.id_for_label }}" name="{{ form.email.html_name }}" maxlength="{{ form.email.field.max_length }}">
+              {% for error in form.email.errors %}
+                <span class="help-block">{{ error }}</span>
+              {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form> 
+
+
+
+
+
+
+{% endblock %}

@@ -1,8 +1,7 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base2.html' %}
 
 {% block content %}
-
-{% if form.errors %}
+<!--{% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
@@ -13,11 +12,69 @@
     {% else %}
     <p>Please login to see this page.</p>
     {% endif %}
-{% endif %}
-<div class=" card w-50">
+{% endif %}-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" 
+integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+<div class="row">
+    <div class="col-6"></div>
+<div class=" card col order-12">
     <div class="">
         <form method="post" action="">
-{% csrf_token %}
+        {% csrf_token %}
+
+       {% if form.errors %}
+            <div id="alert_msg" class="alert alert-warning alert-dismissible fade show" role="alert">
+               <p>Invalid email or password! Please try again.</p>
+          
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+             </button>
+            </div>
+          
+          
+        {% endif %}
+         
+
+        <div class="card-body">
+            
+            <div class="form-group ">
+                <label for="u_name">Username</label>
+                <input class="form-control" id="your_name" type="text" name="username" value="{{ current_name }}">{{ form.errors.username }}
+            </div>
+            
+
+ 
+            
+            <div class="form-group"> 
+                <label for="password">Password </label>
+                <input class="form-control" id="pass" type="password" name="password" value="">
+            </div>
+            
+            <button class="btn bttn" type="submit">Login</button><br><a href="{% url 'blog:signup' %}" class="link">Not a user? Signup here..</a><br>
+            <a href="{% url 'blog:reset' %}" class="link">Forgot password?</a>
+
+        
+        </div>
+        </form>
+    </div>
+      
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+       $('.alert').alert('close')
+    })
+    
+</script>
+
+{% endblock %}
 <!--<table>
 <tr>
     <td>{{ form.username.label_tag }}</td>
@@ -29,22 +86,6 @@
 </tr>
 </table>
 -->
-        <div class="card-body">
-            <div class="form-group ">
-                <label for="u_name">Username </label>
-                <input class="form-control" id="your_name" type="text" name="username" value="{{ current_name }}">
-            </div>
-            <div class="form-group"> 
-                <label for="password">Password </label>
-                <input class="form-control" id="pass" type="password" name="password" value="">
-            </div>
-            <button class="btn bttn" type="submit">Login</button><br><a href="{% url 'blog:signup' %}" class="link">Not a user? Signup here..</a>
-        </div>
-    </div>
-</form>
-</div>
-</div>
-{% endblock %}
 
 
 
