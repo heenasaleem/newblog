@@ -19,10 +19,59 @@ integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfs
 
 <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
 
+<script type="text/javascript">
+
+  //  $(document).ready(function(){
+
+  //    $('#nav_items').on('click', 'a', function(){
+
+  //     $('#nav_items a.active').removeClass("active");
+  //     $(this).addClass("active");
+  //   });
+
+  // });
+  // $(document).ready(function(){
+
+  //   $('nav div div a').click(function(){
+
+  //     $('div a').removeClass("active");
+  //     $(this).addClass("active");
+  //   });
+
+  // });
+  
+  
+
+</script>
+<!--
+<script>
+$(document).ready(function(){
+    $("a").click(function(){
+        $("p").hide();
+    });
+});
+</script>-->
+<!--
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+    $("#show").click(function(){
+        $("p").show();
+    });
+});
+</script>-->
+
 </head>
 
 
 <body>
+  <!--
+  <p>If you click on the "Hide" button, I will disappear.</p>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>-->
 <nav class="navbar navbar-expand-lg nav_style">
   
      <a href=#><img src="{% static 'images/blog_icon.png' %}" class=" img-icon" name="logout" alt="imgage"></a>
@@ -35,7 +84,8 @@ integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfs
      
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav" id="nav_items">
+
       <!--
       <a class="nav-item nav-link active" href="#" style="color: white;">Home <span class="sr-only">(current)</span></a>
       
@@ -43,10 +93,12 @@ integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfs
       <a class="nav-item nav-link" href="#">Pricing</a>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>-->
       
-      <a class="nav-item nav-link nav_text active" href="{% url 'blog:index' %}">My Blogs</a>
-      <a class="nav-item nav-link nav_text active" href="{% url 'blog:save_data' %}">Write Blog</a>
-      <a class="nav-item nav-link nav_text active" href="{% url 'blog:profile' %}">My Profile</a>
-      <a class="nav-item nav-link nav_text active" href="{% url 'blog:change_password' %}">Change password</a>
+      <a class="nav-item nav-link nav_text" {% url 'blog:index' as path1 %} {% if request.path == path1 %} class="active" {% endif %} href="{% url 'blog:index' %}">My Blogs</a>
+      <a class="nav-item nav-link nav_text" {% url 'blog:save_data' as path2 %} {% if request.path == path2 %} class="active" {% endif %}  href="{% url 'blog:save_data' %}">Write Blog {{ path2 }}</a>
+      <a class="nav-item nav-link nav_text" href="{% url 'blog:profile' %}" >My Profile</a>
+      <a class="nav-item nav-link nav_text" href="{% url 'blog:change_password' %}">Change password</a>
+
+      
       
     </div>
     </div> 

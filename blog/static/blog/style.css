@@ -1,8 +1,9 @@
 a:hover {
    color: yellow;
 }
-a:active {
+.active {
     color: orange;
+    
 }
 a{
     color:white;

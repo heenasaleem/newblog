@@ -260,7 +260,17 @@ def download_excel_data(request):
     wb.save(response)
     print("res",response)
     return response
-    
+
+def search(request):
+    #print('inside search')
+    query = request.GET.get('q')
+    #print("query:",query)
+    latest_blog_list = BlogList.objects.filter(title__icontains=query, user=request.user).order_by('-pub_date')
+    #print("blog list:", latest_blog_list)
+    context = {
+        'latest_blog_list': latest_blog_list,
+    }
+    return render(request,'blog/index.html',context)
                 
             
 

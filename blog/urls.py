@@ -8,6 +8,7 @@ app_name = 'blog'
 
 urlpatterns = [
 	#path('',views. , name='')
+	path('search/', views.search, name='search'),
 	path('download/', views.download_excel_data, name='download_excel_data'),
 	path('upload/', views.upload_file, name='upload_file'),
 	path('edit_profile/', views.edit_profile, name='edit_profile'),
